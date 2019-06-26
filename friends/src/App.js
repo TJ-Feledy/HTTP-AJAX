@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
+import FriendList from './component/FriendList';
 
 class App extends React.Component {
   constructor() {
@@ -15,11 +15,8 @@ class App extends React.Component {
     axios.get('http://localhost:5000/friends')
       .then(response => {
         this.setState({
-          friends: response
+          friends: response.data
         })
-      })
-      .then(response => {
-        console.log(response)
       })
       .catch(err => {
         console.log('Error:', err)
@@ -30,7 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-
+        <FriendList friends={this.state.friends} />
       </div>
     );
   }
