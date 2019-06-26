@@ -6,7 +6,7 @@ function Friend(props) {
     <div className='friend'>
       <h1 className='name'>{friend.name}</h1>
       <p className='age'>Age: {friend.age}</p>
-      <p className='email'>EMail: {friend.email}</p>
+      <p className='email'>email: {friend.email}</p>
     </div>
   )
 }
