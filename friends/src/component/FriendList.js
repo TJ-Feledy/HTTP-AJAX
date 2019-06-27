@@ -8,7 +8,7 @@ function FriendList(props) {
       {props.friends.map(friend => {
         return <Friend friends={friend} key={friend.id} />
       })}
-      <FriendForm />
+      <FriendForm updateFriends={props.updateFriends} />
       {console.log(props.friends)}
     </div>
   )

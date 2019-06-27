@@ -22,12 +22,15 @@ class App extends React.Component {
         console.log('Error:', err)
       })
   }
-  
+
+  updateFriends = (friends) => {
+    this.setState({friends})
+  }  
 
   render() {
     return (
       <div className="App">
-        <FriendList friends={this.state.friends} />
+        <FriendList friends={this.state.friends} updateFriends={this.updateFriends} />
       </div>
     );
   }
