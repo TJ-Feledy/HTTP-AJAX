@@ -23,8 +23,9 @@ class FriendForm extends React.Component {
         this.props.updateFriends(response.data)
       })
       .catch((err) => {
-        this.setState({error: err.response.data.error})
+        this.setState({error: err.data.error})
       })
+      
   }
 
   changeHandler = evt => {
