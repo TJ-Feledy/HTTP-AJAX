@@ -34,12 +34,16 @@ class FriendForm extends React.Component {
   }
 
   render() {
+    const {name,age,email,error} = this.state
+
     return (
       <div className='friendForm'>
         <form onSubmit={this.addFriend} >
-          <input type='text' name='name' placeholder='Name' onChange={this.changeHandler} /><br />
-          <input type='number' name='age' placeholder='Age' onChange={this.changeHandler} /><br />
-          <input type='email' name='email' placeholder='Email' onChange={this.changeHandler} /><br />
+          <h2 className='formHeader'>Add A Friend</h2>
+          <p>{error}</p>
+          <input type='text' name='name' placeholder='Name' value={name} onChange={this.changeHandler} /><br />
+          <input type='number' name='age' placeholder='Age' value={age} onChange={this.changeHandler} /><br />
+          <input type='email' name='email' placeholder='Email' value={email} onChange={this.changeHandler} /><br />
           <input type='submit' value='Add' />
         </form>
       </div>
