@@ -3,8 +3,8 @@ import {Link,Route} from 'react-router-dom'
 import Update from './Update'
 
 function Friend(props) {
-  console.log(props.friends)
   const friend = props.friends.find(friend => `${friend.id}` === props.match.params.id)
+  const updateFriends = props.updateFriends
 
   if (!friend) {
     return <p>Loading...</p>
@@ -18,7 +18,7 @@ function Friend(props) {
       <nav className='edit'>
         <Link to={`/friend/${friend.id}/Update`}>Update</Link>
       </nav>
-      <Route path={`/friend/${friend.id}/Update`} render={props => <Update {...props} friend={friend} /> } />
+      <Route path={`/friend/${friend.id}/Update`} render={props => <Update {...props} friend={friend} updateFriends={updateFriends} /> } />
     </div>
   )
 }

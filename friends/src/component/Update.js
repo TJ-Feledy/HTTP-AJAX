@@ -4,7 +4,7 @@ import axios from 'axios'
 class Update extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
+    console.log(this.props.updateFriends)
     this.state = {
       name: props.friend.name,
       age: props.friend.age,
@@ -25,7 +25,8 @@ class Update extends React.Component {
         this.props.history.push('/')
       })
       .catch((err) => {
-        this.setState({ error: err.data.error })
+        console.log(err)
+        this.setState({ error: err })
       })
 
   }
@@ -42,7 +43,7 @@ class Update extends React.Component {
     return (
       <div className='friendForm'>
         <form onSubmit={this.addFriend} >
-          <h2 className='formHeader'>Add A Friend</h2>
+          <h2 className='formHeader'>Update A Friends Info</h2>
           <p>{error}</p>
           <input type='text' name='name' placeholder='Name' value={name} onChange={this.changeHandler} /><br />
           <input type='number' name='age' placeholder='Age' value={age} onChange={this.changeHandler} /><br />
