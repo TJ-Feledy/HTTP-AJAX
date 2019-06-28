@@ -42,7 +42,7 @@ class App extends React.Component {
         </nav>
 
         <Route path='/' exact render={(props) => <FriendList {...props} friends={friends} updateFriends={this.updateFriends} />} />
-        <Route path='/friend/:id' exact render={props => <Friend {...props} friends={friends} /> } />
+        <Route path='/friend/:id' render={props => <Friend {...props} friends={friends} /> } />
         <Route path='/add' render={props => <FriendForm {...props} updateFriends={this.updateFriends} />} />
       </div>
     );
