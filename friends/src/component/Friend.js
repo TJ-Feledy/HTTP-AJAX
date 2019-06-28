@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Friend(props) {
+  console.log(props.friends)
   const friend = props.friends.find(friend => `${friend.id}` === props.match.params.id)
 
   if (!friend) {

@@ -36,13 +36,14 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Link to='/'>Friends</Link>
-        <Link to='/friend/add'>Add A Friend</Link>
-        {/* <FriendList friends={friends} updateFriends={this.updateFriends} /> */}
+        <nav>
+          <Link to='/'>Friends</Link>
+          <Link to='/add'>Add A Friend</Link>
+        </nav>
 
         <Route path='/' exact render={(props) => <FriendList {...props} friends={friends} updateFriends={this.updateFriends} />} />
-        <Route path='/friend/:id' render={props => <Friend {...props} friends={friends} /> } />
-        <Route path='/friend/add' render={props => <FriendForm {...props} updateFriends={this.updateFriends} />} />
+        <Route path='/friend/:id' exact render={props => <Friend {...props} friends={friends} /> } />
+        <Route path='/add' render={props => <FriendForm {...props} updateFriends={this.updateFriends} />} />
       </div>
     );
   }

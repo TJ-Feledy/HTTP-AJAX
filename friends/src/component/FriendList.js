@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import FriendForm from './FriendForm'
 
 function FriendList(props) {
   return (
@@ -13,7 +12,7 @@ function FriendList(props) {
           <p className='email'>email: {friend.email}</p>
         </Link>
       })}
-      {/* <FriendForm updateFriends={props.updateFriends} /> */}
+      
     </div>
   )
 }

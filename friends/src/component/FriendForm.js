@@ -21,6 +21,7 @@ class FriendForm extends React.Component {
       .then((response) => {
         this.setState({error: null})
         this.props.updateFriends(response.data)
+        this.props.history.push('/')
       })
       .catch((err) => {
         this.setState({error: err.data.error})
