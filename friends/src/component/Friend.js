@@ -1,7 +1,12 @@
 import React from 'react'
 
 function Friend(props) {
-  const friend = props.friends
+  const friend = props.friends.find(friend => `${friend.id}` === props.match.params.id)
+
+  if (!friend) {
+    return <p>Loading...</p>
+  }
+
   return (
     <div className='friend'>
       <h1 className='name'>{friend.name}</h1>
