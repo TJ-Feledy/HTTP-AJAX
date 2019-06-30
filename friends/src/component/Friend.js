@@ -5,6 +5,7 @@ import Update from './Update'
 function Friend(props) {
   const friend = props.friends.find(friend => `${friend.id}` === props.match.params.id)
   const updateFriends = props.updateFriends
+  console.log(props)
 
   if (!friend) {
     return <p>Loading...</p>
@@ -18,7 +19,7 @@ function Friend(props) {
       <nav className='edit'>
         <Link to={`/friend/${friend.id}/Update`}>Update</Link>
       </nav>
-      <Route path={`/friend/${friend.id}/Update`} render={props => <Update {...props} friend={friend} updateFriends={updateFriends} /> } />
+      <Route path={`/friend/:id/Update`} render={props => <Update {...props} friend={friend} updateFriends={updateFriends} /> } />
     </div>
   )
 }

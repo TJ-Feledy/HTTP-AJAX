@@ -4,7 +4,6 @@ import axios from 'axios'
 class Update extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.updateFriends)
     this.state = {
       name: props.friend.name,
       age: props.friend.age,
@@ -13,12 +12,13 @@ class Update extends React.Component {
     }
   }
 
-  addFriend = evt => {
+  editFriend = evt => {
     evt.preventDefault()
     const { name, age, email } = this.state
     const payload = { name, age, email }
+    const id = this.props.match.params.id
 
-    axios.post('http://localhost:5000/friends', payload)
+    axios.put(`http://localhost:5000/friends/${id}`, payload)
       .then((response) => {
         this.setState({ error: null })
         this.props.updateFriends(response.data)
@@ -38,13 +38,12 @@ class Update extends React.Component {
   }
 
   render() {
-    const { name, age, email, error } = this.state
+    const { name, age, email} = this.state
 
     return (
       <div className='friendForm'>
-        <form onSubmit={this.addFriend} >
+        <form onSubmit={this.editFriend} >
           <h2 className='formHeader'>Update A Friends Info</h2>
-          <p>{error}</p>
           <input type='text' name='name' placeholder='Name' value={name} onChange={this.changeHandler} /><br />
           <input type='number' name='age' placeholder='Age' value={age} onChange={this.changeHandler} /><br />
           <input type='email' name='email' placeholder='Email' value={email} onChange={this.changeHandler} /><br />
