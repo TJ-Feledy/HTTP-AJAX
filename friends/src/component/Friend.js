@@ -15,7 +15,7 @@ function Friend(props) {
       <h1 className='name'>{friend.name}</h1>
       <p className='age'>Age: {friend.age}</p>
       <p className='email'>email: {friend.email}</p>
-      <nav id='edit'>
+      <nav id='update'>
         <Link to={`/friend/${friend.id}/Update`}>Update</Link>
       </nav>
       <Route path={`/friend/:id/Update`} render={props => <Update {...props} friend={friend} updateFriends={updateFriends} /> } />
