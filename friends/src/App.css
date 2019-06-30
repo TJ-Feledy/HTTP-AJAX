@@ -61,3 +61,7 @@
 .updateButtons button {
   margin-left: 10px;
 }
+
+#addButton {
+  margin-top: 10px;
+}
