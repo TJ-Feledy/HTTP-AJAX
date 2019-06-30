@@ -5,7 +5,6 @@ import Update from './Update'
 function Friend(props) {
   const friend = props.friends.find(friend => `${friend.id}` === props.match.params.id)
   const updateFriends = props.updateFriends
-  console.log(props)
 
   if (!friend) {
     return <p>Loading...</p>

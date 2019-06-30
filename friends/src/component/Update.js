@@ -31,6 +31,24 @@ class Update extends React.Component {
 
   }
 
+  deleteFriend = evt => {
+    evt.preventDefault()
+
+    const id = this.props.match.params.id
+
+    axios.delete(`http://localhost:5000/friends/${id}`)
+      .then((response) => {
+        this.setState({ error: null })
+        this.props.updateFriends(response.data)
+        this.props.history.push('/')
+      })
+      .catch((err) => {
+        console.log(err)
+        this.setState({ error: err })
+      })
+
+  }
+
   changeHandler = evt => {
     this.setState({
       [evt.target.name]: evt.target.value
@@ -47,7 +65,10 @@ class Update extends React.Component {
           <input type='text' name='name' placeholder='Name' value={name} onChange={this.changeHandler} /><br />
           <input type='number' name='age' placeholder='Age' value={age} onChange={this.changeHandler} /><br />
           <input type='email' name='email' placeholder='Email' value={email} onChange={this.changeHandler} /><br />
-          <input type='submit' value='Update' />
+          <div className='updateButtons'>
+            <input type='submit' value='Update' />
+            <button className='deleteButton' type='button' onClick={this.deleteFriend}>Remove</button>
+          </div>
         </form>
       </div>
     )
